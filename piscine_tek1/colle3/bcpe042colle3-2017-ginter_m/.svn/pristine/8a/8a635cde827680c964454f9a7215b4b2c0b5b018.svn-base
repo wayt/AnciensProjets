@@ -1,0 +1,20 @@
+/*
+** utils.h for bcpe042colle3-2017-ginter_m in /home/fest/Epitech/bcpe042colle3-2017-ginter_m
+** 
+** Made by maxime ginters
+** Login   <ginter_m@epitech.eu>
+** 
+** Started on  Sat Oct 27 17:34:15 2012 maxime ginters
+** Last update Sat Oct 27 18:56:05 2012 maxime ginters
+*/
+
+#ifndef UTILS_H_
+# define UTILS_H_
+
+char	**my_str_to_wordtab(char *str);
+void	*my_memset(void *ptr, int value, int size);
+void	my_putstr(char *str);
+
+int	my_strcmp(char *s1, char *s2);
+
+#endif /* !UTILS_H_ */

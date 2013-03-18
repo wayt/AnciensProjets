@@ -1,0 +1,29 @@
+/*
+** what_is_this_glue.c for bcpe042colle3-2017-ginter_m in /home/fest/Epitech/bcpe042colle3-2017-ginter_m
+** 
+** Made by maxime ginters
+** Login   <ginter_m@epitech.eu>
+** 
+** Started on  Sat Oct 27 16:32:20 2012 maxime ginters
+** Last update Sat Oct 27 20:33:07 2012 maxime ginters
+*/
+
+#include "what_is_this_glue.h"
+#include "utils.h"
+
+void	what_is_this_glue(char buff[4096 + 1])
+{
+  char	*t;
+  int	row;
+  int	col;
+
+  row = 0;
+  col = 0;
+  t = my_str_to_wordtab(buff);
+  if (is_tab_valid(t, &row, &col) == 0)
+    my_putstr("Aucune\n");
+  else
+  {
+    printf("coll : %d\n", colle_searcher(t, row, col));
+  }
+}

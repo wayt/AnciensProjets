@@ -1,0 +1,52 @@
+##
+## Makefile
+## 
+## Made by maxime ginters
+## Login   <ginter_m@epitech.eu>
+## 
+## Started on  Sun Jan 20 04:28:06 2013 maxime ginters
+## Last update Sun Jan 20 05:21:15 2013 maxime ginters
+##
+
+CC	= g++
+
+RM	= rm -f
+
+CXXFLAGS	+= -Wextra -Wall -Werror
+CXXFLAGS	+= -I.
+
+LDFLAGS	=
+
+NAME	= santa_machine_0x42
+
+SRCS	= Box.cpp \
+		  ConveyorBeltPePeNoel.cpp \
+		  ElfOfPePeNoel.cpp \
+		  GiftPaper.cpp \
+		  LittlePoney.cpp \
+		  Object.cpp \
+		  PaPaXML.cpp \
+		  SexToy.cpp \
+		  TablePePeNoel.cpp \
+		  Teddy.cpp \
+		  Toy.cpp \
+		  Wrap.cpp \
+		  test_unitaire.cpp
+
+OBJS	= $(SRCS:.cpp=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+
+clean:
+	$(RM) $(OBJS)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
+

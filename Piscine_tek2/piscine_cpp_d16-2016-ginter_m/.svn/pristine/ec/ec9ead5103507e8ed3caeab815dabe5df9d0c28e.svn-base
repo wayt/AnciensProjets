@@ -1,0 +1,91 @@
+/*
+** EventManager.cpp for ex02 in /home/fest/Epitech/Piscine_tek2/piscine_cpp_d16-2016-ginter_m/ex02
+**
+** Made by maxime ginters
+** Login  <ginter_m@epitech.eu>
+**
+** Started on  Thu Jan 24 15:42:24 2013 maxime ginters
+** Last update Thu Jan 24 16:37:16 2013 maxime ginters
+*/
+
+#include "EventManager.h"
+
+EventManager::EventManager() :
+    _list(), _time(0)
+{}
+
+EventManager::~EventManager()
+{}
+
+EventManager::EventManager(EventManager const& other) :
+    _list(other._list), _time(other._time)
+{}
+
+EventManager& EventManager::operator=(EventManager const& other)
+{
+    _list = other._list;
+    _time = other._time;
+    return *this;
+}
+
+void EventManager::addEvent(Event const& event)
+{
+    if (event.getTime() < _time)
+        return;
+    _list.push_back(event);
+    _list.sort(EventManager::_listSort);
+}
+
+void EventManager::removeEventsAt(unsigned int time)
+{
+    std::list<Event>::iterator itr = _list.begin();
+    while (itr != _list.end())
+    {
+        if ((*itr).getTime() == time)
+            _list.erase(itr++);
+        else
+            ++itr;
+    }
+}
+
+void EventManager::dumpEvents() const
+{
+    for (std::list<Event>::const_iterator itr = _list.begin(); itr != _list.end(); ++itr)
+        std::cout << (*itr).getTime() << ": " << (*itr).getEvent() << std::endl;
+}
+
+void EventManager::dumpEventAt(unsigned int time) const
+{
+    for (std::list<Event>::const_iterator itr = _list.begin(); itr != _list.end(); ++itr)
+        if ((*itr).getTime() == time)
+            std::cout << (*itr).getTime() << ": " << (*itr).getEvent() << std::endl;
+}
+
+void EventManager::addTime(unsigned int time)
+{
+    _time += time;
+    for (std::list<Event>::iterator itr = _list.begin(); itr != _list.end();)
+        if ((*itr).getTime() <= _time)
+        {
+            std::cout << (*itr).getEvent() << std::endl;
+            _list.erase(itr++);
+        }
+        else
+            ++itr;
+}
+
+void EventManager::addEventList(std::list<Event>& list)
+{
+    for (std::list<Event>::iterator itr = list.begin(); itr != list.end(); ++itr)
+        if ((*itr).getTime() > _time)
+            _list.push_back(*itr);
+    _list.sort(EventManager::_listSort);
+}
+
+bool EventManager::_listSort(Event const& e1, Event const& e2)
+{
+    if (e1.getTime() <= e2.getTime())
+        return true;
+    return false;
+}
+

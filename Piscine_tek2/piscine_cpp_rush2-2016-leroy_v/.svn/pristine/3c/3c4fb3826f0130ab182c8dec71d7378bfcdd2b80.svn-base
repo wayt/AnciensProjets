@@ -1,0 +1,38 @@
+#include <stdlib.h>
+#include <time.h>
+#include "Wrap.h"
+#include "ConveyorBeltPePeNoel.h"
+
+/*
+enum ObjectType
+{
+    TYPE_WRAP   = 0,
+    TYPE_TOY    = 1
+};
+
+enum ObjectSubType
+{
+    TYPE_GIFTPAPER      = 0,
+    TYPE_BOX            = 1,
+    TYPE_TEDDY          = 2,
+    TYPE_LITTLEPONEY    = 3,
+    TYPE_SEXTOY         = 4
+};
+ */
+
+ConveyorBeltPePeNoel::ConveyorBeltPePeNoel() {
+    srandom(time(NULL));
+    w = Wrap((ObjectSubType)(random() % 4), "random truc");
+}
+
+Object* ConveyorBeltPePeNoel::take() {
+    return w.takeObject();
+}
+
+Object* IN(){
+    return w.takeObject();
+}
+/*
+Object** OUT(){
+
+}*/

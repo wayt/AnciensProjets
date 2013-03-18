@@ -1,0 +1,66 @@
+/*
+** PaPaXML.cpp for piscine_cpp_rush2-2016-leroy_v in /home/fest/Epitech/Piscine_tek2/piscine_cpp_rush2-2016-leroy_v
+**
+** Made by maxime ginters
+** Login  <ginter_m@epitech.eu>
+**
+** Started on  Sun Jan 20 01:34:53 2013 maxime ginters
+** Last update Sun Jan 20 03:19:40 2013 maxime ginters
+*/
+
+#include "PaPaXML.h"
+
+PaPaXML::PaPaXML(std::string const& filename) :
+    _filename(filename)
+{
+}
+
+bool PaPaXML::WakeUp()
+{
+    if (_stream.is_open())
+    {
+        std::cout << PAPAXML_FILE_ALREADY_OPEN << std::endl;
+        return false;
+    }
+
+    _stream.open(_filename.c_str());
+    if (_stream.is_open())
+        _stream << "<0x42>" << std::endl;
+    return _stream.is_open();
+}
+
+void PaPaXML::TakeGift(Object const* obj)
+{
+    if (!obj)
+        return;
+    if (obj->getType() == TYPE_TOY)
+    {
+        _stream << "<Object>" << obj->getTitle() << "</Object>";
+    }
+    else
+    {
+        if (obj->getSubType() == TYPE_GIFTPAPER)
+        {
+            _stream << "<GiftPaper>";
+            TakeGift(obj->ToWrap()->takeObject());
+            _stream << "</GiftPaper>" << std::endl;
+            std::cout << PAPAXML_NEW_GIFT << std::endl;
+        }
+        else if (obj->getSubType() == TYPE_BOX)
+        {
+            _stream << "<Box>";
+            TakeGift(obj->ToWrap()->takeObject());
+            _stream << "</Box>";
+        }
+    }
+}
+
+void PaPaXML::GoSleep()
+{
+    if (!_stream.is_open())
+        return;
+
+    std::cout << PAPAXML_GO_SLEEP << std::endl;
+    _stream << "</0x42>" << std::endl;
+    _stream.close();
+}

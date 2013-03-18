@@ -1,0 +1,60 @@
+#include <stdlib.h>
+#include <time.h>
+#include "Wrap.h"
+#include "ConveyorBeltPePeNoel.h"
+
+ConveyorBeltPePeNoel::ConveyorBeltPePeNoel() :
+    _obj(NULL) 
+{
+    std::cout << PAPAXML_HELLO << std::endl;
+}
+
+ConveyorBeltPePeNoel::~ConveyorBeltPePeNoel()
+{}
+
+Object* ConveyorBeltPePeNoel::take()
+{
+    Object* tmp = _obj;
+    _obj = NULL;
+    return tmp;
+}
+
+void ConveyorBeltPePeNoel::put(Object* obj)
+{
+    if (_obj)
+    {
+        std::cout << CONVEYORBELTPEPENOEL_CANT_PUT << std::endl;
+        return;
+    }
+    _obj = obj;
+}
+
+void ConveyorBeltPePeNoel::IN()
+{
+    if (_obj)
+    {
+        std::cout << CONVEYORBELTPEPENOEL_CANT_PUT << std::endl;
+        return;
+    }
+    if (random() % 2 == 1)
+        _obj = new Box();
+    _obj = new GiftPaper();
+}
+
+std::string ConveyorBeltPePeNoel::Look()
+{
+    return (_obj ? _obj->getTitle() : "");
+}
+
+void ConveyorBeltPePeNoel::OUT()
+{
+    if (!_obj)
+    {
+        std::cout << CONVEYORBELTPEPENOEL_NOTHING_TO_SEND << std::endl;
+        return;
+    }
+    
+    delete _obj;
+    _obj = NULL;
+    std::cout << CONVEYORBELTPEPENOEL_SEND_TO_PAPANOEL << std::endl;
+}

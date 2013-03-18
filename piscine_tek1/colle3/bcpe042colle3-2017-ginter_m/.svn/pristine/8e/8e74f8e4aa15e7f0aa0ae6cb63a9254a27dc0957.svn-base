@@ -1,0 +1,31 @@
+##
+## Makefile
+## 
+## Made by maxime ginters
+## Login   <ginter_m@epitech.eu>
+## 
+## Started on  Sat Oct 27 16:35:32 2012 maxime ginters
+## Last update Sat Oct 27 16:35:34 2012 maxime ginters
+##
+
+EXEC	=	colle1-1
+
+SRC	=	*.c
+
+OBJ	=	$(SRC:.c=.o)
+
+CFLAGS  =       -ansi -W -Wall -pedantic
+
+all	:	$(OBJ)
+		cc -o $(EXEC) $(OBJ)
+
+clean	:	
+		rm -f $(OBJ) *~ *# *.core
+
+fclean	:	clean
+		rm -f $(EXEC)
+
+re	:	fclean all
+
+debug	:	$(OBJ)
+		cc -o $(EXEC) $(OBJ) -g

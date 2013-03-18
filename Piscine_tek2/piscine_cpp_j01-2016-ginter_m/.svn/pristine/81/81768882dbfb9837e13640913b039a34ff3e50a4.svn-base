@@ -1,0 +1,66 @@
+/*
+** follow_the_white_rabbit.c for Jour_01 in /home/fest/Epitech/Piscine_tek2/Jour_01
+**
+** Made by maxime ginters
+** Login  <ginter_m@epitech.eu>
+**
+** Started on  Wed Jan 09 09:29:08 2013 maxime ginters
+** Last update Wed Jan 09 15:57:18 2013 maxime ginters
+*/
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int follow_the_white_rabbit()
+{
+    int rand;
+    int total;
+
+    total = 0;
+    do
+    {
+        rand = (random() % 37) + 1;
+        total += rand;
+        switch (rand)
+        {
+            case 13:
+            case 34:
+            case 35:
+            case 36:
+            case 37:
+                printf("droite\n");
+                break;
+            case 4:
+            case 5:
+            case 6:
+            case 17:
+            case 18:
+            case 19:
+            case 20:
+            case 21:
+            case 28:
+                printf("gauche\n");
+                break;
+            case 10:
+            case 15:
+            case 23:
+                printf("devant\n");
+                break;
+            case 26:
+            case 8:
+            case 16:
+            case 24:
+            case 32:
+                printf("derriere\n");
+                break;
+            case 12:
+            case 11:
+            default:
+                break;
+        }
+    } while (rand != 37 && rand != 1 && total < 397);
+    printf("LAPIN !!!\n");
+
+    return total;
+}
+

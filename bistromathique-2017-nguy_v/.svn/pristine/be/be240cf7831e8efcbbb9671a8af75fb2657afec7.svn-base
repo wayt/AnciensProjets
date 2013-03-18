@@ -1,0 +1,86 @@
+/*
+** str_utils.c for operations in /home/fest/Epitech/bistromathique/operations
+** 
+** Made by maxime ginters
+** Login   <ginter_m@epitech.eu>
+** 
+** Started on  Tue Nov 06 16:57:09 2012 maxime ginters
+** Last update Wed Nov 07 16:39:45 2012 maxime ginters
+*/
+
+#include "my.h"
+#include "bistromathique.h"
+#include "operations.h"
+
+char	**remove_operator_from_second_str(char *tab[2], char ops[7], int t)
+{
+  int	i;
+
+  i = 0;
+  while (tab[t][i + 1] != '\0')
+  {
+    tab[t][i] = tab[t][i + 1];
+    ++i;
+  }
+  tab[t][i] = '\0';
+  return (tab);
+}
+
+char	**swap_tab(char *tab[2])
+{
+  char	*str;
+
+  str = tab[0];
+  tab[0] = tab[1];
+  tab[1] = str;
+  return (tab);
+}
+
+char	get_char_for_value(int val, t_base *base)
+{
+  int	i;
+
+  if (val < 0)
+    val += base->length;
+  i = 0;
+  while (i < 255)
+  {
+    if (base->value[i] == val)
+      return ((char)i);
+    ++i;
+  }
+  return ('$');
+}
+
+int	min_ref(char c)
+{
+  if (c == '-')
+    return (1);
+  return (0);
+}
+
+int	a_is_high_b(char *a, char *b, t_base *base, char ops[7])
+{
+  int	lena;
+  int	lenb;
+  int	i;
+
+  if (a[0] == ops[OP_SUB_IDX])
+    ++a;
+  if (b[0] == ops[OP_SUB_IDX])
+    ++b;
+  lena = my_strlen(a);
+  lenb = my_strlen(b);
+  if (lena > lenb)
+    return (1);
+  if (lena < lenb)
+    return (0);
+  i = 0;
+  while (a[i] == b[i] && a[i] != '\0' && b[i] != '\0')
+    ++i;
+  if (a[i] == '\0')
+    return (-1);
+  if (base->value[a[i]] > base->value[b[i]])
+    return (1);
+  return (0);
+}

@@ -1,0 +1,7 @@
+pause b
+cut
+
+reverse a
+play a
+cue b cue1
+reverse a

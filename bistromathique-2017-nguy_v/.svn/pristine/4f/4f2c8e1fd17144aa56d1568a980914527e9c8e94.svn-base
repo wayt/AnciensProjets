@@ -1,0 +1,57 @@
+##
+## Makefile
+## 
+## Made by maxime ginters
+## Login   <ginter_m@epitech.eu>
+## 
+## Started on  Fri Nov 02 11:07:30 2012 maxime ginters
+## Last update Sun Nov 11 18:40:51 2012 maxime ginters
+##
+
+CC	= cc
+
+RM	= rm -f
+
+#CFLAGS	+= -Wextra -Wall -Werror
+CFLAGS	+= -ansi -pedantic
+CFLAGS	+= -I.
+CFLAGS	+= -I./include
+CFLAGS	+= -I./operations
+CFLAGS	+= -ggdb3
+
+LDFLAGS	= -L./lib
+LDFLAGS	+= -lmy
+LDFLAGS	+= -ggdb3
+
+NAME	= calc
+
+SRCS	= main.c \
+		eval_expr.c \
+		bistromathique.c \
+		str_utils.c \
+		calc_utils.c \
+		misc.c \
+		operations/str_utils.c \
+		operations/operations.c \
+		operations/op_sub.c \
+		operations/op_div.c \
+		operations/op_add.c \
+		operations/op_mult.c
+
+OBJS	= $(SRCS:.c=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+
+clean:
+	$(RM) $(OBJS)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
+

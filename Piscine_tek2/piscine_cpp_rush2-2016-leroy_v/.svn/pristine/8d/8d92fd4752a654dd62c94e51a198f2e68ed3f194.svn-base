@@ -1,0 +1,160 @@
+/*
+** SantaClaus.cpp for SantaClaus in /home/leroy_v/Epitech/piscine2013/Rush2/piscine_cpp_rush2-2016-leroy_v/SantaClaus
+**
+** Made by vincent leroy
+** Login  <leroy_v@epitech.eu>
+**
+** Started on  Sun Jan 20 01:29:35 2013 vincent leroy
+** Last update Sun Jan 20 03:46:51 2013 vincent leroy
+*/
+
+#include "SantaClaus.h"
+
+SantaClaus::SantaClaus()
+{
+}
+
+SantaClaus::~SantaClaus()
+{
+}
+
+void SantaClaus::epurBuffer(std::string &buff)
+{
+    bool conserve = false;
+    std::string str;
+
+    for (unsigned int i = 0; i < buff.size(); ++i) {
+        if (conserve || (buff[i] != ' ' && buff[i] != '\t' && buff[i] != '\n')) {
+            str += buff[i];
+        } else if (buff[i] == '>') {
+            conserve = true;
+        } else if (buff[i] == '<') {
+            conserve = false;
+        }
+    }
+
+    buff = str;
+}
+
+void SantaClaus::checkBuffer(const std::string &buff)
+{
+    unsigned int i = 0;
+    bool giftPaper = false;
+    bool box = false;
+    bool objet = false;
+    std::string objectName;
+
+    std::string magicO = "<0x42>";
+    std::string magicF = "</0x42>";
+    std::string giftPaperO = "<GiftPaper>";
+    std::string giftPaperF = "</GiftPaper>";
+    std::string boxO = "<Box>";
+    std::string boxF = "</Box>";
+    std::string objetO = "<Object>";
+    std::string objetF = "</Object>";
+
+    std::cout << "Beginning of file" << std::endl;
+    if (buff.compare(0, magicO.size(), magicO) != 0) {
+        std::cout << "No magic number at the beginning of file" << std::endl;
+        return ;
+    }
+    i += magicO.size();
+    while (i < buff.size()) {
+        if (buff.compare(i, magicF.size(), magicF) == 0) {
+            std::cout << "End of file" << std::endl;
+            return ;
+        } else if (buff.compare(i, giftPaperO.size(), giftPaperO) == 0) {
+            if (giftPaper || box || objet) {
+                std::cout << "Multi giftPaper" << std::endl;
+                return ;
+            }
+
+            giftPaper = true;
+            i += giftPaperO.size();
+        } else if (buff.compare(i, giftPaperF.size(), giftPaperF) == 0) {
+            if (!giftPaper) {
+                std::cout << "No open giftPaper balise" << std::endl;
+                return ;
+            }
+
+            giftPaper = false;
+            i += giftPaperF.size();
+
+            if (objectName.empty()) {
+                std::cout << "No object name" << std::endl;
+                return ;
+            }
+            std::cout << "Object " << objectName << " is valid" << std::endl;
+            objectName.clear();
+        } else if (buff.compare(i, boxO.size(), boxO) == 0) {
+            if (!giftPaper || box || objet) {
+                std::cout << "Box isn't in gift paper or multi-box" << std::endl;
+                return ;
+            }
+
+            box = true;
+            i += boxO.size();
+        } else if (buff.compare(i, boxF.size(), boxF) == 0) {
+            if (!box) {
+                std::cout << "No open box balise" << std::endl;
+                return ;
+            }
+
+            box = false;
+            i += boxF.size();
+        } else if (buff.compare(i, objetO.size(), objetO) == 0) {
+            if (!giftPaper || !box || objet) {
+                std::cout << "Object isn't in box or multi-object" << std::endl;
+                return ;
+            }
+
+            objet = true;
+            i += objetO.size();
+        } else if (buff.compare(i, objetF.size(), objetF) == 0) {
+            if (!objet) {
+                std::cout << "No open object balise" << std::endl;
+                return ;
+            }
+
+            objet = false;
+            i += objetF.size();
+        } else if (giftPaper && box && objet) {
+            int len;
+            for (len = 0; i + len < buff.size() && buff[i + len] != '<'; ++len);
+            objectName = buff.substr(i, len);
+            i += (len <= 0 ? 1 : len);
+        } else {
+            std::cout << "Balise unknow : buff = " << buff.c_str() + i << std::endl;
+            return ;
+        }
+    }
+}
+
+bool SantaClaus::checkFile(const char *fileName)
+{
+    std::ifstream file(fileName);
+    if (!file) {
+        std::cout << "Unable to open file " << fileName << std::endl;
+        return false;
+    }
+
+    int length;
+    char *buffer;
+
+    file.seekg (0, std::ios::end);
+    length = file.tellg();
+    file.seekg (0, std::ios::beg);
+
+    buffer = new char[length];
+
+    file.read (buffer, length);
+    file.close();
+
+    std::string buff(buffer);
+    epurBuffer(buff);
+    checkBuffer(buff);
+
+    delete[] buffer;
+
+    return true;
+}

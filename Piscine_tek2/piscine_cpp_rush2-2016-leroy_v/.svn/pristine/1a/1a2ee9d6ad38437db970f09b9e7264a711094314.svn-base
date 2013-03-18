@@ -1,0 +1,31 @@
+#include "Object.h"
+#include "Wrap.h"
+
+Wrap::Wrap() : public Object {
+    _obj = NULL;
+    _open = true;
+}
+
+Wrap::~Wrap() {
+    delete _obj;
+}
+
+void Wrap::isOpen() {
+    return _obj;
+}
+
+void Wrap::openMe() {
+    _open = true;
+}
+
+void Wrap::closeMe() {
+    _open = false;
+}
+
+void Wrap::wrapMeThat( Object* b) {
+    _obj = b;
+}
+
+Object* takeObject() {
+    return _obj;
+}

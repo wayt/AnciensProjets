@@ -1,0 +1,77 @@
+/*
+** main.c for etape_2 in /home/fest/Epitech/rush1-2017-ginter_m/etape_2
+**
+** Made by maxime ginters
+** Login  <ginter_m@epitech.eu>
+**
+** Started on  Sat Dec 01 00:11:08 2012 maxime ginters
+** Last update Sat Dec 01 05:14:48 2012 maxime ginters
+*/
+
+#include <stdio.h>
+#include "commandes_parser.h"
+#include "create_platine.h"
+#include "functions.h"
+
+void	process_command(t_platine *pa, t_platine *pb, t_command *cmd)
+{
+  int	i;
+
+  if (cmd->commands[cmd->index] == NULL)
+    return;
+  i = 0;
+  while (funct_tab[i].c != '\0')
+  {
+    if (cmd->commands[cmd->index][0] == funct_tab[i].c)
+      (funct_tab[i].funct)(pa, pb, cmd);
+    ++i;
+  }
+  ++cmd->index;
+
+}
+
+void	run_dj(t_platine *pa, t_platine *pb, t_command *cmd)
+{
+  while (pa->cmd[pa->index] || pb->cmd[pb->index])
+  {
+    process_command(pa, pb, cmd);
+    if (pa->active == 1 && pb->active == 1)
+    {
+      if (pa->cmd[pa->index] && pb->cmd[pb->index])
+        printf("%s_%s\n", pa->cmd[pa->index], pb->cmd[pb->index]);
+      else
+        printf("%s\n", pa->cmd[pa->index] ? pa->cmd[pa->index] : pb->cmd[pb->index]);
+    }
+    else if (pa->active != pb->active)
+      printf("%s\n", pa->active == 1 ? pa->cmd[pa->index] :
+          pb->cmd[pb->index]);
+    else
+      printf("\n");
+    pa->index += (pa->cmd[pa->index] ? 1 : 0);
+    pb->index += (pb->cmd[pb->index] ? 1 : 0);
+  }
+}
+
+int	main(int ac, char **av)
+{
+  t_platine	*platine_a;
+  t_platine	*platine_b;
+  t_command	*commands;
+
+  if (ac < 3)
+  {
+    printf("Usage: ./%s platineA platineB < commandes\n", av[0]);
+    return (1);
+  }
+  platine_a = create_platine(av[1]);
+  platine_b = create_platine(av[2]);
+  commands = read_commands();
+
+  if (!platine_a || !platine_b || !commands)
+  {
+    printf("Error while getting platine or commands\n");
+    return (1);
+  }
+  run_dj(platine_a, platine_b, commands);
+  return (0);
+}

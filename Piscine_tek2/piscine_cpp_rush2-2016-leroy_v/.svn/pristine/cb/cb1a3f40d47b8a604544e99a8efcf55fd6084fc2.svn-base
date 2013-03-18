@@ -1,0 +1,30 @@
+/*
+** Teddy.h for Rush2 in /home/leroy_v/Epitech/piscine2013/Rush2
+**
+** Made by vincent leroy
+** Login  <leroy_v@epitech.eu>
+**
+** Started on  Sat Jan 19 17:27:21 2013 vincent leroy
+** Last update Sat Jan 19 23:30:18 2013 maxime ginters
+*/
+
+#ifndef TEDDY_H_
+# define TEDDY_H_
+
+#include <iostream>
+#include <string>
+#include "Toy.h"
+
+class Teddy : public Toy
+{
+    public:
+	explicit Teddy();
+	virtual ~Teddy() {}
+    void isTaken();
+
+    protected:
+
+    private:
+};
+
+#endif /* !TEDDY_H_ */

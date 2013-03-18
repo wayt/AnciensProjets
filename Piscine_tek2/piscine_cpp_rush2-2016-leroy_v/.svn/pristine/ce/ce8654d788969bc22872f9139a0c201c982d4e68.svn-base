@@ -1,0 +1,55 @@
+#include <stdlib.h>
+#include <time.h>
+#include "Object.h"
+#include "ConveyorBeltPePeNoel.h"
+
+ConveyorBeltPePeNoel::ConveyorBeltPePeNoel(PaPaXML* papa) :
+    _obj(NULL), _MrXML(papa) 
+{
+    std::cout << PAPAXML_HELLO << std::endl;
+}
+
+ConveyorBeltPePeNoel::~ConveyorBeltPePeNoel()
+{}
+
+Object* ConveyorBeltPePeNoel::take()
+{
+    Object* tmp = _obj;
+    _obj = NULL;
+    return tmp;
+}
+
+ConveyorBeltPePeNoel::ConveyorBeltPePeNoel() {
+    _o = NULL;
+    srandom(time(NULL));
+}
+
+Object* ConveyorBeltPePeNoel::take() {
+    _o = new Object(TYPE_WRAP, (ObjectSubType)(random() % 2), "random truc");
+    return _o;
+}
+
+Object* ConveyorBeltPePeNoel::IN(){
+    return _o;
+}
+
+std::string ConveyorBeltPePeNoel::Look() {
+    return _o->getTitle();
+}
+
+/*
+Object** OUT(){
+void ConveyorBeltPePeNoel::OUT()
+{
+    if (!_obj)
+    {
+        std::cout << CONVEYORBELTPEPENOEL_NOTHING_TO_SEND << std::endl;
+        return;
+    }
+    
+    if (_MrXML)
+        _MrXML->TakeGift(_obj);
+    delete _obj;
+    _obj = NULL;
+    std::cout << CONVEYORBELTPEPENOEL_SEND_TO_PAPANOEL << std::endl;
+}

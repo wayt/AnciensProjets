@@ -1,0 +1,24 @@
+#include <fstream>
+#include <iostream>
+#include <string>
+
+int main(int argc, char **argv)
+{
+    if (argc < 2)
+        return 1;
+
+    std::string line;
+    std::ifstream file(argv[1]);
+    if (file.is_open())
+    {
+        while (file.good())
+        {
+            std::getline(file, line);
+            std::cout << line << std::endl;
+        }
+    }
+    else
+        std::cout << argv[0] << ": " << argv[1] << ": No such file or directory" << std::endl;
+    return 0;
+}
+

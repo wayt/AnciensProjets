@@ -1,0 +1,47 @@
+/*
+** Picture.cpp for ex00 in /home/fest/Epitech/Piscine_tek2/jour13/ex00
+**
+** Made by maxime ginters
+** Login  <ginter_m@epitech.eu>
+**
+** Started on  Mon Jan 21 09:40:18 2013 maxime ginters
+** Last update Mon Jan 21 10:26:47 2013 maxime ginters
+*/
+
+#include <cstring>
+#include <iostream>
+#include <fstream>
+#include "Picture.h"
+
+Picture::Picture(std::string const& file) :
+    data("")
+{
+    if (!file.empty())
+        getPictureFromFile(file);
+}
+
+Picture::~Picture()
+{}
+
+bool Picture::getPictureFromFile(std::string const& file)
+{
+    std::ifstream stream;
+    data = "";
+
+    stream.open(file.c_str());
+    if (stream.is_open())
+    {
+        char buff[512];
+        while (stream.good())
+        {
+            memset(buff, 0, 512);
+            stream.read(buff, 512);
+            data += buff;
+        }
+        return true;
+    }
+    else
+        data = "ERROR";
+    return false;
+}
+

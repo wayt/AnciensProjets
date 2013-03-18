@@ -1,0 +1,39 @@
+/*
+** Object.h for PapaNoel in /home/vaga/Projects/tek2/piscine/rush2
+** 
+** Made by fabien casters
+** Login   <fabien.casters@epitech.eu>
+** 
+** Started on  Sat Jan 19 15:27:20 2013 fabien casters
+** Last update Sat Jan 19 17:22:41 2013 maxime ginters
+*/
+
+#ifndef OBJECT
+# define OBJECT
+
+enum ObjectTypes
+{
+    TYPE_WRAP   = 0,
+    TYPE_TOY    = 1
+};
+
+enum ObjectSubType
+{
+    TYPE_GIFTPAPER      = 0,
+    TYPE_BOX            = 1,
+    TYPE_TEDDY          = 2,
+    TYPE_LITTLEPONEY    = 3
+};
+
+class Object
+{
+public:
+    explicit Object(ObjectTypes type, ObjectSubType subtype);
+    Hello();
+private:
+    ObjectTypes _type;
+    ObjectSubType _subType;
+};
+
+#endif
+

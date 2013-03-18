@@ -1,0 +1,5 @@
+fx filter_highpass a
+fx filter_lowpass b
+fx double a
+fx flanger b
+fx echo a

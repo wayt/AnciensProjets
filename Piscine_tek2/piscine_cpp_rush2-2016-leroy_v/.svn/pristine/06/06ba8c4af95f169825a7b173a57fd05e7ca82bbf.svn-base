@@ -1,0 +1,34 @@
+/*
+** SantaClaus.h for SantaClaus in /home/leroy_v/Epitech/piscine2013/Rush2/piscine_cpp_rush2-2016-leroy_v/SantaClaus
+**
+** Made by vincent leroy
+** Login  <leroy_v@epitech.eu>
+**
+** Started on  Sun Jan 20 01:29:43 2013 vincent leroy
+** Last update Sun Jan 20 05:07:23 2013 vincent leroy
+*/
+
+#ifndef SANTACLAUS_H_
+# define SANTACLAUS_H_
+
+#include <iostream>
+#include <fstream>
+#include <string>
+
+class SantaClaus
+{
+    public:
+        explicit SantaClaus();
+        virtual ~SantaClaus();
+
+        int cmp(const std::string &buff, const std::string &other, int dep);
+        void epurBuffer(std::string &buff);
+        void checkBuffer(const std::string &buff);
+        bool checkFile(const char *fileName);
+
+    protected:
+
+    private:
+};
+
+#endif /* !SANTACLAUS_H_ */

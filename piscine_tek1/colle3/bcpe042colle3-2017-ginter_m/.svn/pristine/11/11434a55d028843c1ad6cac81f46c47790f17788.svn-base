@@ -1,0 +1,27 @@
+/*
+** eroor.c for bcpe042colle3-2017-ginter_m in /home/paquit_l/bcpe042colle3-2017-ginter_m
+** 
+** Made by lauris paquit
+** Login   <paquit_l@epitech.eu>
+** 
+** Started on  Sat Oct 27 20:46:44 2012 lauris paquit
+** Last update Sat Oct 27 21:31:03 2012 lauris paquit
+*/
+
+int	is_tab_valid(char **t, int row, int col)
+{
+  int	i;
+  int	lineact;
+  int	colact;
+
+  i = 0;
+  lineact = 1;
+  colact = 1;
+  while(col != '0')
+  {
+    if (colact > 1 && colact < row && lineact > 1 && lineact < row)
+  return (0);
+  if (colact == 1 && lineact == 1)
+    return (1);
+  }
+}

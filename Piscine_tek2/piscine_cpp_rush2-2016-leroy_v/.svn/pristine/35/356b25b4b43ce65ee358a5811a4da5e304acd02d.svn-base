@@ -1,0 +1,19 @@
+#ifndef CONVEYORBELTPEPENOEL_H_
+# define CONVEYORBELTPEPENOEL_H_
+
+#include "IConveyorBelt.h"
+
+class ConveyorBeltPePeNoel : public IConveyorBelt {
+    public:
+	ConveyorBeltPePeNoel();
+	~ConveyorBeltPePeNoel();
+	Object* take();
+	void put(Object*);
+	std::string* Look();
+	Object* IN();
+	Object** OUT();
+    private:
+	Wrap w;
+};
+
+#endif /* !CONVEYORBELTPEPENOEL_H_ */

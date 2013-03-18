@@ -1,0 +1,31 @@
+/*
+** Buzz.cpp for ex02 in /home/fest/Epitech/Piscine_tek2/piscine_cpp_d13-2016-ginter_m/ex02
+**
+** Made by maxime ginters
+** Login  <ginter_m@epitech.eu>
+**
+** Started on  Mon Jan 21 11:14:26 2013 maxime ginters
+** Last update Mon Jan 21 17:05:57 2013 maxime ginters
+*/
+
+#include "Buzz.h"
+
+Buzz::Buzz(std::string const& name, std::string const& filename) :
+    Toy(BUZZ, name, filename)
+{}
+
+Buzz::~Buzz()
+{}
+
+bool Buzz::speak(std::string const& speech)
+{
+    std::cout << "BUZZ: ";
+    return Toy::speak(speech);
+}
+
+bool Buzz::speak_es(std::string const& speech)
+{
+    _error.clear();
+    std::cout << getName() << " senorita \"" << speech << "\" senorita" << std::endl;
+    return true;
+}

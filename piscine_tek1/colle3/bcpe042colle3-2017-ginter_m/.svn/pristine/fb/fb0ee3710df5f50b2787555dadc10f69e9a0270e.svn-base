@@ -1,0 +1,87 @@
+/*
+** colles.c for bcpe042colle3-2017-ginter_m in /home/fest/Epitech/bcpe042colle3-2017-ginter_m
+** 
+** Made by maxime ginters
+** Login   <ginter_m@epitech.eu>
+** 
+** Started on  Sat Oct 27 19:14:35 2012 maxime ginters
+** Last update Sat Oct 27 19:58:41 2012 maxime ginters
+*/
+
+char	my_display_colle1_1(int x, int y, int row, int col)
+{
+  if (x == 1 || y == 1)
+    return ('o');
+  else if ((row == x - 1 || row == 0) && (col == 0 || col == y - 1))
+    return ('o');
+  else if (row == 0 || row == x - 1)
+    return ('-');
+  else if (col == 0 || col == y - 1)
+    return ('|');
+  else
+    return (' ');
+}
+
+char	my_display_colle1_2(int x, int y, int row, int col)
+{
+  if (x == 1 || y == 1)
+    return ('*');
+  else if ((row == 0 || row == x - 1) && col != 0 && col != y - 1)
+    return ('*');
+  else if ((col == 0 || col == y - 1) && row != 0 && row != x - 1)
+    return ('*');
+  else if ((row == 0 && col == 0) || (row == x - 1 && col == y - 1))
+    return ('/');
+  else if ((row == 0 && col == y - 1) || (row == x - 1 && col == 0))
+    return ('\\');
+  else
+    return (' ');
+}
+
+char	my_display_colle1_3(int x, int y, int row, int col)
+{
+  if (x == 1 || y == 1)
+    return ('B');
+  else if ((row == 0 || row == x - 1) && col != 0 && col != y - 1)
+    return ('B');
+  else if ((col == 0 || col == y - 1) && row != 0 && row != x - 1)
+    return ('B');
+  else if (row == 0)
+    return ('A');
+  else if (row == x - 1)
+    return ('C');
+  else
+    return (' ');
+}
+
+char	my_display_colle1_4(int x, int y, int row, int col)
+{
+  if (x == 1 || y == 1)
+    return ('B');
+  else if ((row == 0 || row == x - 1) && col != 0 && col != y - 1)
+    return ('B');
+  else if ((col == 0 || col == y - 1) && row != 0 && row != x - 1)
+    return ('B');
+  else if (col == 0)
+    return ('A');
+  else if (col == x - 1)
+    return ('C');
+  else
+    return (' ');
+}
+
+char	my_display_colle1_5(int x, int y, int row, int col)
+{
+  if (x == 1 || y == 1)
+    return ('B');
+  else if ((row == 0 || row == x - 1) && col != 0 && col != y - 1)
+    return ('B');
+  else if ((col == 0 || col == y - 1) && row != 0 && row != x - 1)
+    return ('B');
+  else if ((row == 0 && col == 0) || (row == x - 1 && col == y - 1))
+    return ('A');
+  else if ((row == 0 && col == y - 1) || (row == x - 1 && col == 0))
+    return ('C');
+  else
+    return (' ');
+}

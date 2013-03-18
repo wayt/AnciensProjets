@@ -1,0 +1,36 @@
+/*
+** Toy.h for PapaNoel in /home/vaga/Projects/tek2/piscine/rush2
+** 
+** Made by fabien casters
+** Login   <fabien.casters@epitech.eu>
+** 
+** Started on  Sat Jan 19 15:30:49 2013 fabien casters
+** Last update Sat Jan 19 17:24:13 2013 vincent leroy
+*/
+
+#ifndef TOY
+# define TOY
+
+#include <iostream>
+#include <string>
+#include "Object.h"
+
+class Toy : public Object
+{
+    public:
+	explicit Toy(std::string const& title, ObjectSubType subType);
+	virtual ~Toy() {}
+
+	virtual bool isTaken() const;
+	virtual void setTaken(bool val);
+	virtual const std::string& getTitle() const;
+
+    protected:
+	std::string _title;
+
+    private:
+	bool _taken;
+
+};
+
+#endif

@@ -1,0 +1,11 @@
+dat
+cpu text 1
+cpu test 2
+dat
+cpu text 0
+ram text
+net graph wlan0
+cpu text -1
+dat
+ker
+nam

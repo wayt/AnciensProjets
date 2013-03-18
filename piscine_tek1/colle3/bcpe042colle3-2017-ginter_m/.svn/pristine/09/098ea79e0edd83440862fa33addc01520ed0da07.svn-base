@@ -1,0 +1,38 @@
+##
+## Makefile
+## 
+## Made by maxime ginters
+## Login   <ginter_m@epitech.eu>
+## 
+## Started on  Sat Oct 27 16:35:32 2012 maxime ginters
+## Last update Sat Oct 27 20:45:18 2012 lauris paquit
+##
+
+NAME	=	colle3
+
+SRC	=	main.c		\
+		what_is_this_glue.c \
+		my_memset.c \
+		my_putstr.c \
+		my_str_to_wordtab.c
+
+OBJ	=	$(SRC:.c=.o)
+
+CC	=	gcc
+
+RM	=	rm -f
+
+CFLAGS	=	-W -Wall -pedantic -ansi
+
+LDFLAGS =	-lm
+
+all	:	$(OBJ)
+		$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)
+
+clean	:
+		$(RM) $(OBJ)
+
+fclean	:	clean
+		$(RM) $(NAME)
+
+re	:	fclean all

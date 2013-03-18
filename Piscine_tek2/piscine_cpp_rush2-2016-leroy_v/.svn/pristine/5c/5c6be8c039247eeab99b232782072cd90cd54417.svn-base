@@ -1,0 +1,22 @@
+/*
+** Message.h for  in /home/vaga/Projects/tek2/piscine/rush2
+** 
+** Made by fabien casters
+** Login   <fabien.casters@epitech.eu>
+** 
+** Started on  Sat Jan 19 17:48:47 2013 fabien casters
+** Last update Sat Jan 19 20:19:34 2013 fabien casters
+*/
+
+#ifndef MESSAGE_H_
+# define MESSAGE_H_
+
+#define BOX_CLOSE "Box is close !"
+#define BOX_OBJ_EMPTY "Box Asshole ! Empty" // TODO: < take a message
+#define BOX_FULL "Box Asshole ! Full" // TODO: < take a message
+
+#define GIFTPAPER_OBJ_EMPTY "GiftPaper Asshole ! Empty" // TODO: < take a message
+#define GIFTPAPER_FULL "GiftPaper Asshole ! Full" // TODO: < take a message
+
+#endif
+

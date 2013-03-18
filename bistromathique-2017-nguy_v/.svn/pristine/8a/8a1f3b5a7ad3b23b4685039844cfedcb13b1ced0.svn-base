@@ -1,0 +1,5 @@
+#/bin/tcsh
+find . -maxdepth 1 -type f -name "*.c" -exec cc -c {} \; && \
+ar rc libmy.a *.o && \
+ranlib libmy.a && \
+cp libmy.a /home/ginter_m/afs/rendu/lib/libmy.a

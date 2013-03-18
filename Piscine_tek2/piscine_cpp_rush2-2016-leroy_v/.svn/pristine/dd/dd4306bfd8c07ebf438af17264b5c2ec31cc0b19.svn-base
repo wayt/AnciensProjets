@@ -1,0 +1,20 @@
+#ifndef WRAP_H_
+# define WRAP_H_
+
+#include "Object.h"
+
+class Wrap : public Object {
+    public:
+	explicit Wrap(ObjectSubType subtype);
+	~Wrap();
+	void wrapMeThat(Object*);
+	virtual bool isOpen() const;
+	void openMe();
+	void closeMe();
+	Object* takeObject();
+    protected:
+	Object* _obj ;
+	bool _open;
+};
+
+#endif /* !WRAP_H_ */

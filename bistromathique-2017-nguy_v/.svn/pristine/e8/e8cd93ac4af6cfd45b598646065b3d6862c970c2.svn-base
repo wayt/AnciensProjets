@@ -1,0 +1,91 @@
+/*
+** eval_expr.c for bistromathique in /home/fest/Epitech/bistromathique
+** 
+** Made by maxime ginters
+** Login   <ginter_m@epitech.eu>
+** 
+** Started on  Fri Nov 02 11:23:41 2012 maxime ginters
+** Last update Sun Nov 11 17:27:51 2012 maxime ginters
+*/
+
+#include "my.h"
+#include "bistromathique.h"
+#include "operations.h"
+
+char	*eval_expr(char *base, char *ops, char *expr, int size)
+{
+  t_base	*b;
+  char	operators[7];
+  char	*value;
+
+  b = formate_base(base);
+  formate_operator(ops, operators);
+  value = do_most_prior(my_strdup(expr), b, operators);
+  free_base(b);
+  return (clean_zero(value, b, operators));
+}
+
+char	*do_most_prior(char *expr, t_base *base, char ops[7])
+{
+  char	*current;
+  int	start;
+  int	end;
+
+  if (expr_is_full_num(expr, base, ops) == 1)
+    return (expr);
+  current = get_parentheses_expr(expr, &start, &end, ops);
+  if (current != NULL)
+  {
+    current = trim_parentheses(current, ops);
+    current = calc(current, base, ops);
+    current = str_replace(expr, start, end, current);
+    return (do_most_prior(current, base, ops));
+  }
+  else
+  {
+    current = trim_parentheses(expr, ops);
+    return (calc(current, base, ops));
+  }
+}
+
+char	*calc(char *expr, t_base *base, char ops[7])
+{
+  int	op_pos;
+  int	st;
+  int	end;
+  char	*tab[2];
+  char	*buff;
+
+  if (expr_is_full_num(expr, base, ops))
+    return (expr);
+  op_pos = get_operator_pos(expr, ops, 0, 0);
+  st = get_operator_pos(expr, ops, op_pos, 0);
+  if (op_pos + 1 != st && is_operator(expr[op_pos], ops, -1) == 1 &&
+    is_operator(expr[st], ops, 1) == 1)
+    op_pos = st;
+  st = get_operator_pos(expr, ops, op_pos, 1);
+  st += (st == 0 ? 0 : 1);
+  tab[0] = get_sub_str(expr, st, op_pos - 1);
+  end = get_operator_pos(expr, ops, op_pos, 0);
+  end -= 1;
+  tab[1] = get_sub_str(expr, op_pos + 1, end);
+
+  buff = calc_str(tab, base, expr[op_pos], ops);
+  expr = str_replace(expr, st, end, buff);
+  return (calc(expr, base, ops));
+}
+
+char	*calc_str(char *tab[2], t_base *base, char c, char ops[7])
+{
+  if (c == ops[OP_PLUS_IDX])
+    return (do_op_add(tab, base, ops));
+  else if (c == ops[OP_SUB_IDX])
+    return (do_op_sub(tab, base, ops));
+  else if (c == ops[OP_MULT_IDX])
+    return (do_op_mult(tab, base, ops));
+  else if (c == ops[OP_DIV_IDX])
+    return (do_op_div(tab, base, ops));
+  else if (c == ops[OP_MOD_IDX])
+    return (do_op_mod(tab, base, ops));
+  return (my_strdup("0"));
+}

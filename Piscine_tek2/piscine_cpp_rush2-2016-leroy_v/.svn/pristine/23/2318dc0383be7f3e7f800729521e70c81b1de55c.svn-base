@@ -1,0 +1,75 @@
+/*
+** Object.cpp for PapaNoel in /home/vaga/Projects/tek2/piscine/rush2
+** 
+** Made by fabien casters
+** Login   <fabien.casters@epitech.eu>
+** 
+** Started on  Sat Jan 19 15:29:30 2013 fabien casters
+** Last update Sat Jan 19 17:57:22 2013 maxime ginters
+*/
+
+#include <iostream>
+#include "Object.h"
+
+Object::Object(ObjectType type, ObjectSubType subtype) :
+    _type(type), _subtype(subtype)
+{
+
+}
+
+void Object::Hello() const
+{
+    std::cout << "Hello world !" << std::endl; 
+}
+
+ObjectType Object::getType() const
+{
+    return _type;
+}
+
+ObjectSubType Object::getSubType() const
+{
+    return _subType;
+}
+
+GiftPaper* Object::ToGiftPaper()
+{
+    if (_subType != TYPE_GIFTPAPER)
+        return NULL;
+    return dynamic_cast<GiftPaper*>(this)
+}
+
+Box* Object::ToBox()
+{
+    if (_subType != TYPE_BOX)
+        return NULL;
+    return dynamic_cast<Box*>(this)
+}
+
+Toy* Object::ToToy()
+{
+    if (_subType != TYPE_TOY)
+        return NULL;
+    return dynamic_cast<Toy*>(this)
+}
+
+Teddy* Object::ToTeddy()
+{
+    if (_subType != TYPE_TEDDY)
+        return NULL;
+    return dynamic_cast<Teddy*>(this)
+}
+
+LittlePoney* Object::ToLittlePoney()
+{
+    if (_subType != TYPE_LITTLEPONEY)
+        return NULL;
+    return dynamic_cast<LittlePoney*>(this)
+}
+
+SexToy* Object::SexToy()
+{
+    if (_subType != TYPE_SEXTOY)
+        return NULL;
+    return dynamic_cast<SexToy*>(this)
+}

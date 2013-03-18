@@ -1,0 +1,149 @@
+/*
+** operations.c for temp_operations in /home/fest/Epitech/bistromathique/temp_operations
+** 
+** Made by maxime ginters
+** Login   <ginter_m@epitech.eu>
+** 
+** Started on  Tue Nov 06 16:23:06 2012 maxime ginters
+** Last update Sun Nov 11 18:02:20 2012 maxime ginters
+*/
+
+#include <assert.h>
+#include <stdlib.h>
+#include "my.h"
+#include "operations.h"
+#include "bistromathique.h"
+
+#define rm_op remove_operator_from_second_str
+#define MAX(a, b) (((a) >= (b)) ? (a) : (b))
+
+char	*do_op_add(char *tab[2], t_base *base, char ops[7])
+{
+  int	len[2];
+  int	i;
+  char	*buff;
+  int	ret;
+
+  if (tab[0][0] == ops[OP_SUB_IDX] && tab[1][0] != ops[OP_SUB_IDX])
+    return (do_op_sub(rm_op(swap_tab(tab), ops, 1), base, ops));
+  if (tab[1][0] == ops[OP_SUB_IDX] && tab[0][0] != ops[OP_SUB_IDX])
+    return (do_op_sub(rm_op(tab, ops, 1), base, ops));
+  len[0] = my_strlen(tab[0]) - 1;
+  len[1] = my_strlen(tab[1]) - 1;
+  buff = xmalloc((MAX(len[0], len[1]) + 3) * sizeof(char));
+  my_memset(buff, 0x0, MAX(len[0], len[1]) + 3);
+  i = 0;
+  ret = 0;
+  while (len[0] >= min_ref(tab[0][0], ops) || len[1] >= min_ref(tab[1][0], ops))
+  {
+    ret += get_op_add_ret(len, tab, base, ops);
+    buff[i++] = get_char_for_value(ret % base->length, base);
+    ret /= base->length;
+    --len[0];
+    --len[1];
+  }
+  if (ret > 0)
+    buff[i++] = get_char_for_value(ret % base->length, base);
+  if (min_ref(tab[0][0], ops) == 1 && min_ref(tab[1][0], ops) == 1)
+    buff[i++] = '-';
+  return (my_revstr(my_strdup(buff)));
+}
+
+char	*do_op_sub(char *tab[2], t_base *base, char ops[7])
+{
+  int	neg[2];
+
+  if (tab[0][0] == ops[OP_SUB_IDX] && tab[1][0] != ops[OP_SUB_IDX])
+    return (my_strcat(my_strdup("-"), do_op_add(rm_op(tab, ops, 0), base, ops)));
+  else if (tab[1][0] == ops[OP_SUB_IDX])
+    return (do_op_add(rm_op(tab, ops, 1), base, ops));
+  neg[0] = (tab[0][0] == ops[OP_SUB_IDX]);
+  neg[1] = (tab[1][0] == ops[OP_SUB_IDX]);
+  return (op_sub(tab, base, ops, neg));
+}
+
+char	*do_op_mult(char *tab[2], t_base *base, char ops[7])
+{
+  char	*buff;
+  int	len[2];
+  int	var[4];
+
+  len[0] = my_strlen(tab[0]) - 1;
+  len[1] = my_strlen(tab[1]) - 1;
+  var[0] = 0;
+  var[3] = 0;
+  buff = xmalloc((len[0] + len[1] + 3) * sizeof(char));
+  my_memset(buff, get_char_for_value(0, base), len[0] + len[1] + 2);
+  while (len[1] >= min_ref(tab[1][0], ops))
+  {
+    len[0] = my_strlen(tab[0]) - 1;
+    while (len[0] >= min_ref(tab[0][0], ops))
+    {
+      var[1] = base->value[tab[0][len[0]]] * base->value[tab[1][len[1]]];
+      var[1] += base->value[buff[var[0]]];;
+      buff[var[0]] = get_char_for_value(var[1] % base->length, base);
+      var[2] = 1;
+      while (var[1] / base->length > 0)
+      {
+        var[1] = (var[1] / base->length) + base->value[buff[var[0] + var[2]]];
+        buff[var[0] + var[2]++] = get_char_for_value(var[1] % base->length, base);
+      }
+      ++var[0];
+      --len[0];
+    }
+    var[0] = ++var[3];
+    --len[1];
+  }
+  if (min_ref(tab[0][0], ops) != min_ref(tab[1][0], ops))
+    buff[var[3]++] = '-';
+  return (my_revstr(my_strdup(buff)));
+}
+
+char	*do_op_div(char *tab[2], t_base *base, char ops[7])
+{
+  int	len[2];
+  char	*buff;
+  char	*divisor;
+  int	neg[2];
+
+  neg[0] = min_ref(tab[0][0], ops);
+  neg[1] = min_ref(tab[1][0], ops);
+  divisor = absolute(tab[1], ops);
+  len[0] = my_strlen(tab[0]) - 1;
+  len[1] = my_strlen(tab[1]) - 1;
+  buff = xmalloc((MAX(len[0], len[1]) + 1) * sizeof(char));
+  my_memset(buff, base->str[0], MAX(len[0], len[1]) + 1);
+  buff = my_strcpy(buff, "0");
+  tab[0] = absolute(tab[0], ops);
+  tab[1] = my_strdup(divisor);
+  while (tab[0][0] != ops[OP_SUB_IDX] && is_null(tab[0], base) == 0)
+  {
+    tab[0] = clean_zero(do_op_sub(tab, base, ops), base, ops);
+    tab[1] = my_strdup(divisor);
+    buff = do_op_add(compute_tab(my_strdup(buff), my_strdup("1")), base, ops);
+  }
+  if (neg[0] != neg[1])
+    return (do_op_mult(compute_tab(my_strdup(buff), my_strdup("-1")), base, ops));
+  return (my_strdup(buff));
+}
+
+char	*do_op_mod(char *tab[2], t_base *base, char ops[7])
+{
+  int	len[2];
+  char	*buff;
+  char	*divisor;
+  int	neg[2];
+
+  neg[0] = min_ref(tab[0][0], ops);
+  neg[1] = min_ref(tab[1][0], ops);
+
+  divisor = absolute(tab[1], ops);
+  tab[0] = absolute(tab[0], ops);
+  tab[1] = my_strdup(divisor);
+  while (tab[0][0] != ops[OP_SUB_IDX] && is_null(tab[0], base) == 0)
+  {
+    tab[0] = clean_zero(do_op_sub(tab, base, ops), base, ops);
+    tab[1] = my_strdup(divisor);
+  }
+  return (absolute(tab[0], ops));
+}

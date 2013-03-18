@@ -1,0 +1,39 @@
+/*
+** operations.h for temp_operations in /home/fest/Epitech/bistromathique/temp_operations
+** 
+** Made by maxime ginters
+** Login   <ginter_m@epitech.eu>
+** 
+** Started on  Tue Nov 06 16:21:12 2012 maxime ginters
+** Last update Thu Nov 08 14:39:48 2012 maxime ginters
+*/
+
+#ifndef OPERTIONS_H_
+# define OPERTIONS_H_
+
+#include "bistromathique.h"
+
+/*
+** operations.c
+*/
+char	*do_op_add(char *tab[2], t_base *base, char ops[7]);
+char	*do_op_sub(char *tab[2], t_base *base, char ops[7]);
+char	*do_op_mult(char *tab[2], t_base *base, char ops[7]);
+char	*do_op_div(char *tab[2], t_base *base, char ops[7]);
+char	*do_op_mod(char *tab[2], t_base *base, char ops[7]);
+
+/*
+** str_utils.c
+*/
+char	**remove_operator_from_second_str(char *tab[2], char ops[7], int t);
+char	**swap_tab(char *tab[2]);
+char	get_char_for_value(int val, t_base *base);
+int	min_ref(char c);
+int	a_is_high_b(char *a, char *b, t_base *base, char ops[7]);
+
+/*
+** op_sub.c
+*/
+char	*op_sub(char *tab[2], t_base *base, char ops[7], int neg[2]);
+
+#endif /* !OPERTIONS_H_ */

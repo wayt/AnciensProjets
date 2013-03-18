@@ -1,0 +1,65 @@
+/*
+** POP3.cpp for rush-mars-2016-leroy_v in /home/leroy_v/Epitech/projet_tek2/bmail/rush-mars-2016-leroy_v
+**
+** Made by vincent leroy
+** Login  <leroy_v@epitech.eu>
+**
+** Started on  Sat Mar 09 17:19:14 2013 vincent leroy
+** Last update Sun Mar 10 06:57:09 2013 vincent leroy
+*/
+
+#include "POP3.h"
+#include "Exception.hpp"
+
+namespace Protocol
+{
+
+POP3::POP3() : AReceveur()
+{
+}
+
+POP3::~POP3()
+{
+}
+
+bool POP3::login(const std::string &user, const std::string &pass) const
+{
+    std::string cmd("USER ");
+
+    cmd += user + "\r\n";
+    std::cout << sendAndReceive("USER " + user + "\r\n") << std::endl;
+    cmd = "PASS " + pass + "\r\n";
+    std::string result = sendAndReceive(cmd);
+
+    std::cout << result << std::endl;
+    if (result.find("+OK") != std::string::npos)
+        return true;
+
+    return false;
+}
+
+std::list<std::string> POP3::getFolders() const
+{
+    std::list<std::string> folders;
+
+    folders.push_front("INBOX");
+    return folders;
+}
+
+std::list<std::vector<std::string> > POP3::getMails(const std::string &) const
+{
+    std::list<std::vector<std::string> > mails;
+    std::string result = sendAndReceive("STAT\r\n");
+    std::stringstream ss(result);
+    std::string total;
+    ss >> total >> total;
+    std::cout << total << std::endl;
+    return mails;
+}
+
+std::string POP3::getMail(const std::string &num) const
+{
+    return sendAndReceive("RETR " + num + "\r\n");
+}
+
+}

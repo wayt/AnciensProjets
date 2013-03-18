@@ -1,0 +1,21 @@
+/*
+** Object.h for PapaNoel in /home/vaga/Projects/tek2/piscine/rush2
+** 
+** Made by fabien casters
+** Login   <fabien.casters@epitech.eu>
+** 
+** Started on  Sat Jan 19 15:27:20 2013 fabien casters
+** Last update Sat Jan 19 16:34:21 2013 fabien casters
+*/
+
+#ifndef OBJECT
+# define OBJECT
+
+class Object
+{
+public:
+    Hello();
+};
+
+#endif
+
