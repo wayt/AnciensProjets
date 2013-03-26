@@ -1,0 +1,87 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CC	Makefile	/^CC	= g++$/;"	m
+GRAPHICNCURSES_H_	GraphicNCurses.h	12;"	d
+GraphicNCurses	GraphicNCurses.cpp	/^GraphicNCurses::GraphicNCurses() : _title(""), _window(NULL), _bgcolor(COLOR_BLACK),$/;"	f	class:GraphicNCurses	signature:()
+GraphicNCurses	GraphicNCurses.h	/^    GraphicNCurses();$/;"	p	class:GraphicNCurses	access:public	signature:()
+GraphicNCurses	GraphicNCurses.h	/^class GraphicNCurses : public IGraphic$/;"	c	inherits:IGraphic
+GraphicNCurses::GraphicNCurses	GraphicNCurses.cpp	/^GraphicNCurses::GraphicNCurses() : _title(""), _window(NULL), _bgcolor(COLOR_BLACK),$/;"	f	class:GraphicNCurses	signature:()
+GraphicNCurses::GraphicNCurses	GraphicNCurses.h	/^    GraphicNCurses();$/;"	p	class:GraphicNCurses	access:public	signature:()
+GraphicNCurses::_bgcolor	GraphicNCurses.h	/^    int _bgcolor;$/;"	m	class:GraphicNCurses	access:private
+GraphicNCurses::_height	GraphicNCurses.h	/^    int _height;$/;"	m	class:GraphicNCurses	access:private
+GraphicNCurses::_title	GraphicNCurses.h	/^    std::string _title;$/;"	m	class:GraphicNCurses	access:private
+GraphicNCurses::_width	GraphicNCurses.h	/^    int _width;$/;"	m	class:GraphicNCurses	access:private
+GraphicNCurses::_winOffsetX	GraphicNCurses.h	/^    int _winOffsetX;$/;"	m	class:GraphicNCurses	access:private
+GraphicNCurses::_winOffsetY	GraphicNCurses.h	/^    int _winOffsetY;$/;"	m	class:GraphicNCurses	access:private
+GraphicNCurses::_window	GraphicNCurses.h	/^    WINDOW* _window;$/;"	m	class:GraphicNCurses	access:private
+GraphicNCurses::addResource	GraphicNCurses.cpp	/^bool GraphicNCurses::addResource(int id, int color, std::string const& image)$/;"	f	class:GraphicNCurses	signature:(int id, int color, std::string const& image)
+GraphicNCurses::addResource	GraphicNCurses.h	/^    bool addResource(int id, int color, std::string const& image);$/;"	p	class:GraphicNCurses	access:public	signature:(int id, int color, std::string const& image)
+GraphicNCurses::draw	GraphicNCurses.cpp	/^void GraphicNCurses::draw(int **map)$/;"	f	class:GraphicNCurses	signature:(int **map)
+GraphicNCurses::draw	GraphicNCurses.h	/^    void draw(int **);$/;"	p	class:GraphicNCurses	access:public	signature:(int **)
+GraphicNCurses::drowBorder	GraphicNCurses.cpp	/^void GraphicNCurses::drowBorder()$/;"	f	class:GraphicNCurses	signature:()
+GraphicNCurses::drowBorder	GraphicNCurses.h	/^    void drowBorder();$/;"	p	class:GraphicNCurses	access:private	signature:()
+GraphicNCurses::getCharNSetColorForId	GraphicNCurses.cpp	/^char GraphicNCurses::getCharNSetColorForId(int id)$/;"	f	class:GraphicNCurses	signature:(int id)
+GraphicNCurses::getCharNSetColorForId	GraphicNCurses.h	/^    char getCharNSetColorForId(int id);$/;"	p	class:GraphicNCurses	access:private	signature:(int id)
+GraphicNCurses::getKey	GraphicNCurses.cpp	/^int GraphicNCurses::getKey() const$/;"	f	class:GraphicNCurses	signature:() const
+GraphicNCurses::getKey	GraphicNCurses.h	/^    int getKey() const;$/;"	p	class:GraphicNCurses	access:public	signature:() const
+GraphicNCurses::init	GraphicNCurses.cpp	/^void GraphicNCurses::init(int width, int height, std::string const& title)$/;"	f	class:GraphicNCurses	signature:(int width, int height, std::string const& title)
+GraphicNCurses::init	GraphicNCurses.h	/^    void init(int width, int height, std::string const& title);$/;"	p	class:GraphicNCurses	access:public	signature:(int width, int height, std::string const& title)
+GraphicNCurses::setBackground	GraphicNCurses.cpp	/^void GraphicNCurses::setBackground(int color)$/;"	f	class:GraphicNCurses	signature:(int color)
+GraphicNCurses::setBackground	GraphicNCurses.h	/^    void setBackground(int color);$/;"	p	class:GraphicNCurses	access:public	signature:(int color)
+GraphicNCurses::setString	GraphicNCurses.cpp	/^void GraphicNCurses::setString(int pos, std::string const& string, int color)$/;"	f	class:GraphicNCurses	signature:(int pos, std::string const& string, int color)
+GraphicNCurses::setString	GraphicNCurses.h	/^    void setString(int pos, const std::string &string, int color);$/;"	p	class:GraphicNCurses	access:public	signature:(int pos, const std::string &string, int color)
+GraphicNCurses::~GraphicNCurses	GraphicNCurses.cpp	/^GraphicNCurses::~GraphicNCurses()$/;"	f	class:GraphicNCurses	signature:()
+GraphicNCurses::~GraphicNCurses	GraphicNCurses.h	/^    virtual ~GraphicNCurses();$/;"	p	class:GraphicNCurses	access:public	signature:()
+HEIGHT	GraphicNCurses.h	19;"	d
+IGRAPHIC_H_	IGraphic.h	12;"	d
+IGraphic	IGraphic.h	/^class IGraphic$/;"	c
+IGraphic::addResource	IGraphic.h	/^    virtual bool addResource(int id, int color, const std::string &image) = 0;$/;"	p	class:IGraphic	access:public	signature:(int id, int color, const std::string &image)
+IGraphic::draw	IGraphic.h	/^    virtual void draw(int **) = 0; \/\/ useless$/;"	p	class:IGraphic	access:public	signature:(int **)
+IGraphic::getKey	IGraphic.h	/^    virtual int getKey() const = 0; \/\/ touche$/;"	p	class:IGraphic	access:public	signature:() const
+IGraphic::init	IGraphic.h	/^    virtual void init(int width, int height, const std::string &title) = 0;$/;"	p	class:IGraphic	access:public	signature:(int width, int height, const std::string &title)
+IGraphic::setBackground	IGraphic.h	/^    virtual void setBackground(int color) = 0;$/;"	p	class:IGraphic	access:public	signature:(int color)
+IGraphic::setString	IGraphic.h	/^    virtual void setString(int pos, const std::string &string, int color) = 0;$/;"	p	class:IGraphic	access:public	signature:(int pos, const std::string &string, int color)
+IGraphic::~IGraphic	IGraphic.h	/^    virtual ~IGraphic() {}$/;"	f	class:IGraphic	access:public	signature:()
+LDFLAGS	Makefile	/^LDFLAGS	= -lcurses$/;"	m
+NAME	Makefile	/^NAME	= Nibbler$/;"	m
+OBJS	Makefile	/^OBJS	= $(SRCS:.cpp=.o)$/;"	m
+RM	Makefile	/^RM	= rm -f$/;"	m
+SRCS	Makefile	/^SRCS	= main.cpp GraphicNCurses.cpp$/;"	m
+WIDTH	GraphicNCurses.h	18;"	d
+_bgcolor	GraphicNCurses.h	/^    int _bgcolor;$/;"	m	class:GraphicNCurses	access:private
+_height	GraphicNCurses.h	/^    int _height;$/;"	m	class:GraphicNCurses	access:private
+_title	GraphicNCurses.h	/^    std::string _title;$/;"	m	class:GraphicNCurses	access:private
+_width	GraphicNCurses.h	/^    int _width;$/;"	m	class:GraphicNCurses	access:private
+_winOffsetX	GraphicNCurses.h	/^    int _winOffsetX;$/;"	m	class:GraphicNCurses	access:private
+_winOffsetY	GraphicNCurses.h	/^    int _winOffsetY;$/;"	m	class:GraphicNCurses	access:private
+_window	GraphicNCurses.h	/^    WINDOW* _window;$/;"	m	class:GraphicNCurses	access:private
+addResource	GraphicNCurses.cpp	/^bool GraphicNCurses::addResource(int id, int color, std::string const& image)$/;"	f	class:GraphicNCurses	signature:(int id, int color, std::string const& image)
+addResource	GraphicNCurses.h	/^    bool addResource(int id, int color, std::string const& image);$/;"	p	class:GraphicNCurses	access:public	signature:(int id, int color, std::string const& image)
+addResource	IGraphic.h	/^    virtual bool addResource(int id, int color, const std::string &image) = 0;$/;"	p	class:IGraphic	access:public	signature:(int id, int color, const std::string &image)
+draw	GraphicNCurses.cpp	/^void GraphicNCurses::draw(int **map)$/;"	f	class:GraphicNCurses	signature:(int **map)
+draw	GraphicNCurses.h	/^    void draw(int **);$/;"	p	class:GraphicNCurses	access:public	signature:(int **)
+draw	IGraphic.h	/^    virtual void draw(int **) = 0; \/\/ useless$/;"	p	class:IGraphic	access:public	signature:(int **)
+drowBorder	GraphicNCurses.cpp	/^void GraphicNCurses::drowBorder()$/;"	f	class:GraphicNCurses	signature:()
+drowBorder	GraphicNCurses.h	/^    void drowBorder();$/;"	p	class:GraphicNCurses	access:private	signature:()
+getCharNSetColorForId	GraphicNCurses.cpp	/^char GraphicNCurses::getCharNSetColorForId(int id)$/;"	f	class:GraphicNCurses	signature:(int id)
+getCharNSetColorForId	GraphicNCurses.h	/^    char getCharNSetColorForId(int id);$/;"	p	class:GraphicNCurses	access:private	signature:(int id)
+getKey	GraphicNCurses.cpp	/^int GraphicNCurses::getKey() const$/;"	f	class:GraphicNCurses	signature:() const
+getKey	GraphicNCurses.h	/^    int getKey() const;$/;"	p	class:GraphicNCurses	access:public	signature:() const
+getKey	IGraphic.h	/^    virtual int getKey() const = 0; \/\/ touche$/;"	p	class:IGraphic	access:public	signature:() const
+init	GraphicNCurses.cpp	/^void GraphicNCurses::init(int width, int height, std::string const& title)$/;"	f	class:GraphicNCurses	signature:(int width, int height, std::string const& title)
+init	GraphicNCurses.h	/^    void init(int width, int height, std::string const& title);$/;"	p	class:GraphicNCurses	access:public	signature:(int width, int height, std::string const& title)
+init	IGraphic.h	/^    virtual void init(int width, int height, const std::string &title) = 0;$/;"	p	class:IGraphic	access:public	signature:(int width, int height, const std::string &title)
+main	main.cpp	/^int main(int ac, char **av)$/;"	f	signature:(int ac, char **av)
+setBackground	GraphicNCurses.cpp	/^void GraphicNCurses::setBackground(int color)$/;"	f	class:GraphicNCurses	signature:(int color)
+setBackground	GraphicNCurses.h	/^    void setBackground(int color);$/;"	p	class:GraphicNCurses	access:public	signature:(int color)
+setBackground	IGraphic.h	/^    virtual void setBackground(int color) = 0;$/;"	p	class:IGraphic	access:public	signature:(int color)
+setString	GraphicNCurses.cpp	/^void GraphicNCurses::setString(int pos, std::string const& string, int color)$/;"	f	class:GraphicNCurses	signature:(int pos, std::string const& string, int color)
+setString	GraphicNCurses.h	/^    void setString(int pos, const std::string &string, int color);$/;"	p	class:GraphicNCurses	access:public	signature:(int pos, const std::string &string, int color)
+setString	IGraphic.h	/^    virtual void setString(int pos, const std::string &string, int color) = 0;$/;"	p	class:IGraphic	access:public	signature:(int pos, const std::string &string, int color)
+~GraphicNCurses	GraphicNCurses.cpp	/^GraphicNCurses::~GraphicNCurses()$/;"	f	class:GraphicNCurses	signature:()
+~GraphicNCurses	GraphicNCurses.h	/^    virtual ~GraphicNCurses();$/;"	p	class:GraphicNCurses	access:public	signature:()
+~IGraphic	IGraphic.h	/^    virtual ~IGraphic() {}$/;"	f	class:IGraphic	access:public	signature:()
