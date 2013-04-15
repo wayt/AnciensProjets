@@ -1,0 +1,83 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CC	Makefile	/^CC	= gcc$/;"	m
+COMMANDS_H_	commands.h	12;"	d
+LDFLAGS	Makefile	/^LDFLAGS	=$/;"	m
+NAME	Makefile	/^NAME	= serveur$/;"	m
+OBJS	Makefile	/^OBJS	= $(SRCS:.c=.o)$/;"	m
+POLL_TIMEOUT	serveur.h	17;"	d
+RM	Makefile	/^RM	= rm -f$/;"	m
+SERVEUR_H_	serveur.h	12;"	d
+SRCS	Makefile	/^SRCS	= main.c serveur.c commands.c$/;"	m
+TCP_SEPARATOR	commands.h	16;"	d
+_GNU_SOURCE	serveur.c	11;"	d	file:
+__anon1::cmd	commands.h	/^  const char	*cmd;$/;"	m	struct:__anon1	access:public
+__anon1::func	commands.h	/^  void		(*func)(t_client*, char[], int);$/;"	m	struct:__anon1	access:public
+__anon2::buff_size	serveur.h	/^  int			buff_size;$/;"	m	struct:__anon2	access:public
+__anon2::buffer	serveur.h	/^  char			buffer[4096];$/;"	m	struct:__anon2	access:public
+__anon2::file_fd	serveur.h	/^  int			file_fd;$/;"	m	struct:__anon2	access:public
+__anon2::filesize	serveur.h	/^  unsigned int		filesize;$/;"	m	struct:__anon2	access:public
+__anon2::pwd	serveur.h	/^  char			pwd[512];$/;"	m	struct:__anon2	access:public
+__anon2::received	serveur.h	/^  double		received;$/;"	m	struct:__anon2	access:public
+__anon2::sock	serveur.h	/^  struct sockaddr_in	sock;$/;"	m	struct:__anon2	typeref:struct:__anon2::sockaddr_in	access:public
+__anon2::sockfd	serveur.h	/^  int			sockfd;$/;"	m	struct:__anon2	access:public
+buff_size	serveur.h	/^  int			buff_size;$/;"	m	struct:__anon2	access:public
+buffer	serveur.h	/^  char			buffer[4096];$/;"	m	struct:__anon2	access:public
+client_loop	serveur.c	/^void		client_loop(t_client *client)$/;"	f	signature:(t_client *client)
+client_loop	serveur.h	/^void	client_loop(t_client *client);$/;"	p	signature:(t_client *client)
+cmd	commands.h	/^  const char	*cmd;$/;"	m	struct:__anon1	access:public
+command_cd	commands.c	/^void	command_cd(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+command_cd	commands.h	/^void	command_cd(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+command_get	commands.c	/^void	command_get(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+command_get	commands.h	/^void	command_get(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+command_ls	commands.c	/^void		command_ls(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+command_ls	commands.h	/^void	command_ls(t_client* client, char cmd[], int size);$/;"	p	signature:(t_client* client, char cmd[], int size)
+command_pwd	commands.c	/^void	command_pwd(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+command_pwd	commands.h	/^void	command_pwd(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+commands	commands.c	/^t_cmd	commands[] = {$/;"	v
+create_socket	serveur.c	/^int			create_socket(int port)$/;"	f	signature:(int port)
+create_socket	serveur.h	/^int	create_socket(int port);$/;"	p	signature:(int port)
+file_fd	serveur.h	/^  int			file_fd;$/;"	m	struct:__anon2	access:public
+filesize	serveur.h	/^  unsigned int		filesize;$/;"	m	struct:__anon2	access:public
+func	commands.h	/^  void		(*func)(t_client*, char[], int);$/;"	m	struct:__anon1	access:public
+get_file_size	commands.c	/^unsigned int	get_file_size(const char* filename)$/;"	f	signature:(const char* filename)
+get_serparator_index	commands.c	/^int	get_serparator_index(char buff[], int size)$/;"	f	signature:(char buff[], int size)
+handle_command	commands.c	/^void	handle_command(t_client* client, char cmd[], int size)$/;"	f	signature:(t_client* client, char cmd[], int size)
+handle_command	commands.h	/^void	handle_command(t_client* client, char cmd[], int size);$/;"	p	signature:(t_client* client, char cmd[], int size)
+handle_connect	serveur.c	/^void	handle_connect(int sockfd, int newfd, struct sockaddr_in *newsock)$/;"	f	signature:(int sockfd, int newfd, struct sockaddr_in *newsock)
+handle_connect	serveur.h	/^void	handle_connect(int sockfd, int newfd, struct sockaddr_in *newsock);$/;"	p	signature:(int sockfd, int newfd, struct sockaddr_in *newsock)
+handle_data	commands.c	/^void	handle_data(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+handle_data	commands.h	/^void	handle_data(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+handle_event	serveur.c	/^void	handle_event(t_client *client, struct pollfd* poll)$/;"	f	signature:(t_client *client, struct pollfd* poll)
+handle_event	serveur.h	/^void	handle_event(t_client *client, struct pollfd* poll);$/;"	p	signature:(t_client *client, struct pollfd* poll)
+handle_fileend	commands.c	/^void	handle_fileend(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+handle_fileend	commands.h	/^void	handle_fileend(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+handle_filename	commands.c	/^void	handle_filename(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+handle_filename	commands.h	/^void	handle_filename(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+handle_filesize	commands.c	/^void	handle_filesize(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+handle_filesize	commands.h	/^void	handle_filesize(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+handle_ping	commands.c	/^void	handle_ping(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+handle_ping	commands.h	/^void	handle_ping(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+main	main.c	/^int	main(int ac, char **av)$/;"	f	signature:(int ac, char **av)
+parse_buffer	commands.c	/^void	parse_buffer(t_client *client)$/;"	f	signature:(t_client *client)
+parse_buffer	commands.h	/^void	parse_buffer(t_client *client);$/;"	p	signature:(t_client *client)
+parse_command	commands.c	/^void	parse_command(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+parse_command	commands.h	/^void	parse_command(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+print_usage	main.c	/^void	print_usage()$/;"	f
+pwd	serveur.h	/^  char			pwd[512];$/;"	m	struct:__anon2	access:public
+received	serveur.h	/^  double		received;$/;"	m	struct:__anon2	access:public
+send_not_found	commands.c	/^void	send_not_found(t_client *client)$/;"	f	signature:(t_client *client)
+send_not_found	commands.h	/^void	send_not_found(t_client *client);$/;"	p	signature:(t_client *client)
+send_prompt	commands.c	/^void	send_prompt(t_client *client)$/;"	f	signature:(t_client *client)
+send_prompt	commands.h	/^void	send_prompt(t_client *client);$/;"	p	signature:(t_client *client)
+sock	serveur.h	/^  struct sockaddr_in	sock;$/;"	m	struct:__anon2	typeref:struct:__anon2::sockaddr_in	access:public
+socket_loop	serveur.c	/^void			socket_loop(int sockfd)$/;"	f	signature:(int sockfd)
+socket_loop	serveur.h	/^void	socket_loop(int sockfd);$/;"	p	signature:(int sockfd)
+sockfd	serveur.h	/^  int			sockfd;$/;"	m	struct:__anon2	access:public
+sub_commands	commands.c	/^t_cmd	sub_commands[] = {$/;"	v
+t_client	serveur.h	/^}			t_client;$/;"	t	typeref:struct:__anon2
+t_cmd	commands.h	/^}		t_cmd;$/;"	t	typeref:struct:__anon1

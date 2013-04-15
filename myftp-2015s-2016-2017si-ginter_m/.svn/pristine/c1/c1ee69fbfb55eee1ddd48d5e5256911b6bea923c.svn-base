@@ -1,0 +1,80 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CC	Makefile	/^CC	= gcc$/;"	m
+CLIENT_H_	client.h	12;"	d
+COMMANDS_H_	commands.h	12;"	d
+KEEP_ALIVE_PING_INTERVAL	client.h	14;"	d
+LDFLAGS	Makefile	/^LDFLAGS	=$/;"	m
+NAME	Makefile	/^NAME	= client$/;"	m
+OBJS	Makefile	/^OBJS	= $(SRCS:.c=.o)$/;"	m
+RM	Makefile	/^RM	= rm -f$/;"	m
+SRCS	Makefile	/^SRCS	= main.c client.c commands.c$/;"	m
+TCP_SEPARATOR	commands.h	16;"	d
+__anon1::cmd	commands.h	/^  const char	*cmd;$/;"	m	struct:__anon1	access:public
+__anon1::func	commands.h	/^  void		(*func)(t_client*, char[], int);$/;"	m	struct:__anon1	access:public
+__anon2::buff_size	client.h	/^  int		buff_size;$/;"	m	struct:__anon2	access:public
+__anon2::buffer	client.h	/^  char		buffer[4096];$/;"	m	struct:__anon2	access:public
+__anon2::file_fd	client.h	/^  int		file_fd;$/;"	m	struct:__anon2	access:public
+__anon2::filename	client.h	/^  char		filename[512];$/;"	m	struct:__anon2	access:public
+__anon2::filesize	client.h	/^  unsigned int	filesize;$/;"	m	struct:__anon2	access:public
+__anon2::received	client.h	/^  double	received;$/;"	m	struct:__anon2	access:public
+__anon2::send_statut	client.h	/^  char		send_statut;$/;"	m	struct:__anon2	access:public
+__anon2::sockfd	client.h	/^  int		sockfd;$/;"	m	struct:__anon2	access:public
+__anon2::wait_data	client.h	/^  char		wait_data;$/;"	m	struct:__anon2	access:public
+__anon2::wait_pong	client.h	/^  char		wait_pong;$/;"	m	struct:__anon2	access:public
+buff_size	client.h	/^  int		buff_size;$/;"	m	struct:__anon2	access:public
+buffer	client.h	/^  char		buffer[4096];$/;"	m	struct:__anon2	access:public
+client_loop	client.c	/^void			client_loop(int sockfd)$/;"	f	signature:(int sockfd)
+client_loop	client.h	/^void	client_loop(int sockfd);$/;"	p	signature:(int sockfd)
+cmd	commands.h	/^  const char	*cmd;$/;"	m	struct:__anon1	access:public
+command_put	commands.c	/^void	command_put(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+command_put	commands.h	/^void	command_put(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+command_quit	commands.c	/^void	command_quit(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+command_quit	commands.h	/^void	command_quit(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+commands	commands.c	/^t_cmd	commands[] = {$/;"	v
+connect_to	client.c	/^int			connect_to(const char *host, const char *port)$/;"	f	signature:(const char *host, const char *port)
+connect_to	client.h	/^int	connect_to(const char *host, const char *port);$/;"	p	signature:(const char *host, const char *port)
+file_fd	client.h	/^  int		file_fd;$/;"	m	struct:__anon2	access:public
+filename	client.h	/^  char		filename[512];$/;"	m	struct:__anon2	access:public
+filesize	client.h	/^  unsigned int	filesize;$/;"	m	struct:__anon2	access:public
+func	commands.h	/^  void		(*func)(t_client*, char[], int);$/;"	m	struct:__anon1	access:public
+get_file_size	commands.c	/^unsigned int	get_file_size(const char* filename)$/;"	f	signature:(const char* filename)
+get_serparator_index	commands.c	/^int	get_serparator_index(char buff[], int size)$/;"	f	signature:(char buff[], int size)
+handle_command	commands.c	/^void	handle_command(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+handle_command	commands.h	/^void	handle_command(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+handle_data	commands.c	/^void	handle_data(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+handle_data	commands.h	/^void	handle_data(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+handle_fileend	commands.c	/^void	handle_fileend(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+handle_fileend	commands.h	/^void	handle_fileend(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+handle_filename	commands.c	/^void	handle_filename(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+handle_filename	commands.h	/^void	handle_filename(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+handle_filesize	commands.c	/^void	handle_filesize(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+handle_filesize	commands.h	/^void	handle_filesize(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+handle_next	commands.c	/^void	handle_next(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+handle_pong	commands.c	/^void	handle_pong(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+handle_pong	commands.h	/^void	handle_pong(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+handle_prompt	commands.c	/^void	handle_prompt(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+handle_prompt	commands.h	/^void	handle_prompt(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+handle_receiv	commands.c	/^void	handle_receiv(t_client *client)$/;"	f	signature:(t_client *client)
+handle_receiv	commands.h	/^void	handle_receiv(t_client *client);$/;"	p	signature:(t_client *client)
+handle_text	commands.c	/^void	handle_text(t_client *client, char data[], int size)$/;"	f	signature:(t_client *client, char data[], int size)
+handle_text	commands.h	/^void	handle_text(t_client *client, char data[], int size);$/;"	p	signature:(t_client *client, char data[], int size)
+local_cmds	commands.c	/^t_cmd	local_cmds[] = {$/;"	v
+main	main.c	/^int	main(int ac, char **av)$/;"	f	signature:(int ac, char **av)
+parse_command	commands.c	/^void	parse_command(t_client *client, char cmd[], int size)$/;"	f	signature:(t_client *client, char cmd[], int size)
+parse_command	commands.h	/^void	parse_command(t_client *client, char cmd[], int size);$/;"	p	signature:(t_client *client, char cmd[], int size)
+ping_server	client.c	/^void	ping_server(t_client *client)$/;"	f	signature:(t_client *client)
+print_usage	main.c	/^void	print_usage()$/;"	f
+process_fd	client.c	/^void	process_fd(t_client* client, fd_set *fd_in)$/;"	f	signature:(t_client* client, fd_set *fd_in)
+received	client.h	/^  double	received;$/;"	m	struct:__anon2	access:public
+send_statut	client.h	/^  char		send_statut;$/;"	m	struct:__anon2	access:public
+sockfd	client.h	/^  int		sockfd;$/;"	m	struct:__anon2	access:public
+t_client	client.h	/^}		t_client;$/;"	t	typeref:struct:__anon2
+t_cmd	commands.h	/^}		t_cmd;$/;"	t	typeref:struct:__anon1
+throw_error	client.c	/^void	throw_error()$/;"	f
+wait_data	client.h	/^  char		wait_data;$/;"	m	struct:__anon2	access:public
+wait_pong	client.h	/^  char		wait_pong;$/;"	m	struct:__anon2	access:public

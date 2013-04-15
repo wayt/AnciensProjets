@@ -1,0 +1,87 @@
+GRANT ALL PRIVILEGES TO 'kingyo'@'%' IDENTIFIED BY '42';
+create database kingyo;
+GRANT ALL PRIVILEGES ON 'kingyo'.* TO 'kingyo'@'%' IDENTIFIED BY '42';
+GRANT ALL PRIVILEGES ON 'kingyo'.* TO 'kingyo'@'%' IDENTIFIED BY 'aa42';
+GRANT ALL PRIVILEGES ON 'kingyo'.* TO 'kingyo'@'%' IDENTIFIED BY '42';
+GRANT ALL PRIVILEGES ON 'kingyo'.* TO 'kingyo'@'%' IDENTIFIED BY 'abc';
+GRANT ALL PRIVILEGE ON 'kingyo'.* TO 'kingyo'@'%' IDENTIFIED BY '42';
+SET SQL_MODE="ANSI_QUOTES";
+GRANT ALL PRIVILEGE ON 'kingyo'.* TO 'kingyo'@'%' IDENTIFIED BY '42';
+GRANT ALL PRIVILEGE ON 'kingyo'.* TO 'kingyo'@'%' IDENTIFIED BY "42";
+GRANT ALL PRIVILEGE ON 'kingyo'.* TO 'kingyo'@% IDENTIFIED BY '42';
+GRANT ALL PRIVILEGE ON 'kingyo'.'*' TO 'kingyo'@'%' IDENTIFIED BY '42';
+GRANT ALL PRIVILEGES ON *.* TO 'bleed'@
+'85.69.150.185' IDENTIFIED BY 'aptrf25' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'bleed'@ '85.69.150.185' IDENTIFIED BY 'aptrf25' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'bleed'@'85.69.150.185' IDENTIFIED BY 'aptrf25' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON kingyo.* TO 'kingyo'@'%' IDENTIFIED BY '42';
+SHOW BINARY LOGS;
+PURGE BINARY LOGS TO 'mysql-bin.000001';
+SHOW BINARY LOGS;
+PURGE BINARY LOGS TO 'mysql-bin.000004';
+PURGE BINARY LOGS TO 'mysql-bin.000001';
+SHOW BINARY LOGS;
+PURGE MASTER LOGS TO 'mysql-bin.000001';
+SHOW BINARY LOGS;
+show databases;
+show database
+show databases
+show databases;
+show database show databases show databases;
+show databases;
+use dw_recup
+source db/dw_recup.sql
+create database dw_store
+create database;
+create database dw_store;
+use dw√_store
+use dw_store
+source db/dw_store.sql
+create database dw_confirms;
+use dw_confirms
+source db/dw√_confirms.sql
+source db/dw_confirms.sql
+create database dw_vote
+;
+use dw√_vote
+use dw_vote
+source db/dw_vote.sql
+create database dw_wordpress;
+use dw_store
+SELECT * FROM produits
+;
+UPDATE produits SET idwow = "-1" WHERE id_produit = 4;
+SELECT * FROM produits;
+?
+status
+use dw_store
+?
+SELECT COLUMN_NAME
+FROM INFORMATION_SCHEMA.COLUMNS
+SELECT * FROM produits
+;
+use dw_store
+SELECT * FROM produits;
+show databases;
+ls
+create database char;
+create database char
+;
+create database chartest;
+use chartest;
+source char.sql
+use chartest
+show
+characters
+;
+show characters;
+struct characters;
+print characters;
+help
+?
+\c
+\q
+desc characters
+;
+desc arena_team;
+insert into arena_team values (1, "toto", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
