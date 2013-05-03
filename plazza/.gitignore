@@ -1,0 +1,8 @@
+*
+!.gitignore
+!Makefile
+!*.cpp
+!*.h
+!*.hpp
+!Pizza
+!Graphic
