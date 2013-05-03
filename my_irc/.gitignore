@@ -1,0 +1,13 @@
+*
+!.vim.custom
+!.gitignore
+!Makefile
+!*.c
+!*.h
+!src_serveur
+!src_client
+!src_shared
+!ncurses
+!auteur
+!README
+!Protocole
